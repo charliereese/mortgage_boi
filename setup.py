@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="mortgage-boi",
-    version="0.0.1",
+    version="0.0.4",
     author="Charlie Reese",
     author_email="j.charles.reese@gmail.com",
     description="A package for calculating mortgage data and cash flows",

@@ -2,7 +2,7 @@ import unittest
 import os, sys
 
 # Add lib/ to module lookup path
-parent_dir = os.path.join(sys.path[0], '../lib')
+parent_dir = os.path.join(sys.path[0], '../mortgage_boi')
 sys.path.insert(1, parent_dir) 
 
 from mortgage import *
