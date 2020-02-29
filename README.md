@@ -27,3 +27,7 @@ See https://packaging.python.org/tutorials/packaging-projects/
 # Useful information for building packages:
 
 - [what is __init__.py for](https://stackoverflow.com/questions/448271/what-is-init-py-for)
+
+# Running test suite
+
+`python -m unittest discover tests`
