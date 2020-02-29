@@ -1,12 +1,13 @@
 class Mortgage:
     
-    def __init__(self, principal, apr, n=25, **kwargs):
+    def __init__(self, principal, apr, n=25, compounding_periods=2, **kwargs):
         self.principal = principal
         self.apr = apr # annual percentage rate
-        self.n = 25 # years
-        
+        self.n = n # years
+        self.compounding_periods = compounding_periods
+
         self.months = self.n * 12
-        self.ear = ((1 + apr / 2) ** 2) - 1 # effective annual rate: compounds semi-annually
+        self.ear = ((1 + apr / self.compounding_periods) ** self.compounding_periods) - 1
         self.emr = ((1 + self.ear) ** (1 / 12)) - 1 # effective monthly rate
 
     @property
@@ -42,3 +43,8 @@ class Mortgage:
             payments.append(obj)
         
         return tuple(payments)
+    
+    def payments_field(self, field):
+        return tuple(
+            [obj[field] for obj in self.payments]
+        )

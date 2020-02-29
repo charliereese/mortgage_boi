@@ -28,15 +28,15 @@ class MortgageTestCase(unittest.TestCase):
         self.assertIsInstance(self.mortgage.payments, tuple)
 
         first_payment = self.mortgage.payments[0]
-        self.assertTrue('principal' in first_payment.keys()) 
-        self.assertTrue('interest' in first_payment.keys())
-        self.assertTrue('balance_start' in first_payment.keys())
-        self.assertTrue('balance_end' in first_payment.keys())
+        for prop in ['principal', 'interest', 'balance_start', 'balance_end']:
+            self.assertTrue(prop in first_payment.keys()) 
         
         # Ends with 0 principal outstanding        
         self.assertEqual(round(self.mortgage.payments[-1]['balance_end'], 4), 0)
 
-
+    def test_payments_field(self):
+        for prop in ['principal', 'interest', 'balance_start', 'balance_end']:
+            self.assertIsInstance(self.mortgage.payments_field(prop), tuple)
 
 if __name__ == '__main__':
     unittest.main()
